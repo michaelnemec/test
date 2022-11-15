@@ -69,7 +69,6 @@ document.getElementById("btnConnect").addEventListener("click", function() {
 // from the accelerometer, update it
  alert("going online!");
 function onLine(line) {
- alert("data received!");
   console.log("RECEIVED:"+line);
   var d = line.split(",");
   if (d.length==4 && d[0]=="A") {
