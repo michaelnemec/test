@@ -57,6 +57,7 @@ document.getElementById("btnConnect").addEventListener("click", function() {
         // Now upload our code to it
         connection.write("\x03\x10if(1){"+BANGLE_CODE+"}\n",
           function() { console.log("Ready..."); });
+       alert("Code uploaded!");
       }, 1500);
     });
   });
