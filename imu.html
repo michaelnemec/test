@@ -67,11 +67,13 @@ document.getElementById("btnConnect").addEventListener("click", function() {
 
 // When we get a line of data, check it and if it's
 // from the accelerometer, update it
+ alert("going online!");
 function onLine(line) {
  alert("data received!");
   console.log("RECEIVED:"+line);
   var d = line.split(",");
   if (d.length==4 && d[0]=="A") {
+   alert("accelerometer reading!");
     // we have an accelerometer reading
     var accel = {
       x : parseInt(d[1]),
@@ -79,6 +81,7 @@ function onLine(line) {
       z : parseInt(d[3]),
     };    
     // Update bar positions
+   alert("updating bar position!");
     setBarPos("barX", accel.x);
     setBarPos("barY", accel.y);
     setBarPos("barZ", accel.z);
@@ -86,6 +89,7 @@ function onLine(line) {
 }
 // Set the position of each bar
 function setBarPos(id,d) {
+ alert("setting bar position!");
   var s = document.getElementById(id).style;
   if (d>150) d=150;
   if (d<-150) d=-150;
