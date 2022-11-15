@@ -51,9 +51,11 @@ document.getElementById("btnConnect").addEventListener("click", function() {
       l.forEach(onLine);
     });
     // First, reset the Bangle
+   alert("Code uploading!");
     connection.write("reset();\n", function() {
       // Wait for it to reset itself
       setTimeout(function() {
+       alert("reset! code uploading");
         // Now upload our code to it
         connection.write("\x03\x10if(1){"+BANGLE_CODE+"}\n",
           function() { console.log("Ready..."); });
@@ -66,6 +68,7 @@ document.getElementById("btnConnect").addEventListener("click", function() {
 // When we get a line of data, check it and if it's
 // from the accelerometer, update it
 function onLine(line) {
+ alert("data received!");
   console.log("RECEIVED:"+line);
   var d = line.split(",");
   if (d.length==4 && d[0]=="A") {
