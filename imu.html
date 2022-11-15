@@ -11,7 +11,7 @@
 <script>
 // Code to upload to Bangle.js
 var BANGLE_CODE = `
-Bangle.on('accel',function(a) {
+Puck.on('accel',function(a) {
   var d = [
     "A",
     Math.round(a.x*100),
